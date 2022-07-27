@@ -2,7 +2,6 @@ package com.trafigura.interview.controller;
 
 import com.trafigura.interview.dto.PositionDto;
 import com.trafigura.interview.dto.TradeDto;
-import com.trafigura.interview.model.Trade;
 import com.trafigura.interview.service.TransactionService;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
@@ -13,7 +12,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * @author Kunal
@@ -48,7 +46,6 @@ public class TradeController {
     @PostMapping("/transactions")
     public ResponseEntity<TradeDto> createTransaction(@RequestBody TradeDto trade) {
         try {
-           ;
             return new ResponseEntity<>(TradeDto.toDto(service.createTransaction(trade)), HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
